@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Revision Notes | Matric Made Easy</title>
+
+    <!-- Global MME styling -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Notes-specific styling -->
+    <link rel="stylesheet" href="css/notes.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <img
+                class="logo"
+                src="assets/logo2.png"
+                alt="Matric Made Easy"
+            >
+
+            <p class="brand-name">
+                Matric Made Easy
+            </p>
+
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Dashboard
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= NOTES PAGE ================= -->
+
+    <main class="notes-page">
+
+        <button
+            id="sidebarToggle"
+            class="sidebar-toggle"
+            aria-label="Toggle sidebar"
+        >
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="notes-sidebar">
+
+            <div class="sidebar-header">
+                <h2>Revision Notes</h2>
+            </div>
+
+
+            <!-- Subject / grade information -->
+
+            <div
+                id="sidebarSubject"
+                class="sidebar-subject"
+            >
+                Loading...
+            </div>
+
+
+            <!-- Chapters will be inserted here -->
+
+            <div
+                id="chapterList"
+                class="chapter-list"
+            >
+            </div>
+
+        </aside>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <section class="notes-content">
+
+
+            <!-- Mobile / desktop back button -->
+
+            <a
+                id="backBtn"
+                class="notes-back"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back
+            </a>
+
+
+            <!-- Current note -->
+
+            <article
+                id="noteContent"
+                class="note-content"
+            >
+
+                <div class="notes-loading">
+
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                    <p>
+                        Loading revision notes...
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+    </main>
+
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+    ↑
+    </button>
+
+    <!-- ================= SUPABASE ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<!-- MathJax -->
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']]
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+</script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<!-- Notes engine -->
+<script src="js/notes.js"></script>
+
+</body>
+
+</html>

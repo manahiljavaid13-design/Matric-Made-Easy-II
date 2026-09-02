@@ -1,0 +1,1017 @@
+/* ==========================================
+   PRACTICE PAGE
+========================================== */
+
+.practice-page{
+
+    max-width:1200px;
+    margin:auto;
+    padding:70px 30px;
+
+}
+
+.back-btn{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    color:var(--green-mid);
+    text-decoration:none;
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.back-btn:hover{
+
+    color:var(--green-dark);
+
+}
+
+.page-header{
+
+    margin:25px 0 45px;
+
+}
+
+#pageTitle{
+
+    font-family:var(--font-display);
+    color:var(--green-dark);
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+#pageDescription{
+
+    color:var(--ink-muted);
+    max-width:650px;
+
+}
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+#setupSection{
+
+    display:grid;
+
+    grid-template-columns:2.2fr 1fr;
+
+    gap:2rem;
+
+    align-items:start;
+
+}
+.practice-sidebar{
+
+    position:sticky;
+
+    top:120px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2rem;
+
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+#chapterList,
+#optionsContainer{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow-card);
+
+}
+
+#chapterList h2,
+#optionsContainer h2{
+
+    font-family:var(--font-display);
+
+    color:var(--green-dark);
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
+   CHAPTER CHECKLIST
+========================================== */
+
+.chapter-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:12px 4px;
+
+    border-bottom:1px solid #ece8df;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.chapter-card:last-child{
+
+    border-bottom:none;
+
+}
+
+.chapter-card:hover{
+
+    padding-left:10px;
+
+}
+
+.chapter-card input{
+
+    accent-color:var(--green-mid);
+
+    width:18px;
+
+    height:18px;
+
+    cursor:pointer;
+
+}
+
+.chapter-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.chapter-info h3{
+
+    margin:0;
+
+    font-size:1rem;
+
+    color:#222;
+
+}
+
+.chapter-info p{
+
+    margin-top:3px;
+
+    color:var(--ink-muted);
+
+    font-size:.9rem;
+
+}
+
+/* ==========================================
+   OPTIONS
+========================================== */
+
+.option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:18px;
+
+    font-size:.95rem;
+
+    cursor:pointer;
+
+}
+
+.option:last-child{
+
+    margin-bottom:0;
+
+}
+
+.option input{
+
+    accent-color:var(--green-mid);
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.start-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:35px;
+
+}
+#startBtn{
+
+    width:100%;
+
+    padding:1rem;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:.8rem;
+
+    transition:.3s;
+
+    box-shadow:
+
+        0 14px 30px rgba(107,138,90,.18);
+
+}
+
+#startBtn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 20px 40px rgba(107,138,90,.28);
+
+}
+
+#startBtn i{
+
+    transition:.3s;
+
+}
+
+#startBtn:hover i{
+
+    transform:rotate(90deg);
+
+}
+.question-count{
+
+    background:white;
+
+    padding:1.5rem;
+
+    border-radius:20px;
+
+    box-shadow:
+
+        0 10px 25px rgba(0,0,0,.05);
+
+}
+.hidden{
+
+    display:none !important;
+
+}
+/* ======================================================
+   MCQ PRACTICE
+====================================================== */
+
+:root{
+
+    --green:#ccd5ae;
+    --bg:#ffffff;
+    --muted:#f3f4f6;
+    --text:#222;
+    --accent:#6b8a5a;
+
+    --radius:22px;
+
+}
+
+
+
+/* ======================================================
+   Practice Container
+====================================================== */
+
+#practiceSection{
+
+    min-height:calc(100vh - 110px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:2rem;
+
+}
+
+
+
+/* ======================================================
+   Quiz Card
+====================================================== */
+
+.quiz-container{
+
+    width:100%;
+
+    max-width:850px;
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    border-radius:28px;
+
+    padding:2rem;
+
+    box-shadow:
+
+        0 25px 70px rgba(0,0,0,.08);
+
+}
+
+
+
+/* ======================================================
+   Progress
+====================================================== */
+
+.progress-bar{
+
+    height:12px;
+
+    background:#ececec;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    margin-bottom:1.3rem;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:0;
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--green),
+
+        var(--accent)
+
+    );
+
+    transition:.45s;
+
+}
+
+
+
+/* ======================================================
+   Question Counter
+====================================================== */
+
+.question-counter{
+
+    font-size:.95rem;
+
+    color:#777;
+
+    margin-bottom:1rem;
+
+}
+
+
+
+/* ======================================================
+   Question Card
+====================================================== */
+
+.question-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:2rem;
+
+    margin-bottom:2rem;
+
+    box-shadow:
+
+        0 8px 25px rgba(0,0,0,.05);
+
+}
+
+.question-card h2{
+
+    font-size:1.45rem;
+
+    font-weight:600;
+
+    line-height:1.7;
+
+    color:var(--text);
+
+}
+
+
+
+/* ======================================================
+   Options
+====================================================== */
+
+.options{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:1rem;
+
+}
+
+
+
+/* ======================================================
+   Option Button
+====================================================== */
+
+.option-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:1rem;
+
+    padding:1rem 1.2rem;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    text-align:left;
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.05);
+
+}
+
+
+
+.option-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 14px 35px rgba(0,0,0,.09);
+
+}
+
+
+
+.option-letter{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--muted);
+
+    font-weight:700;
+
+    color:var(--accent);
+
+    flex-shrink:0;
+
+}
+
+
+
+.option-text{
+
+    flex:1;
+
+    font-size:1rem;
+
+    color:var(--text);
+
+}
+
+
+
+/* ======================================================
+   States
+====================================================== */
+
+.option-btn.selected{
+
+    border:2px solid var(--accent);
+
+    background:#f8fbf5;
+
+}
+
+
+
+.option-btn.correct{
+
+    background:#e8f7e7;
+
+    border:2px solid #3e9145;
+
+}
+
+
+
+.option-btn.incorrect{
+
+    background:#fdeaea;
+
+    border:2px solid #d84a4a;
+
+}
+
+
+
+.option-btn:disabled{
+
+    cursor:default;
+
+}
+
+
+
+/* ======================================================
+   Feedback
+====================================================== */
+
+.feedback{
+
+    margin-top:1.8rem;
+
+    padding:1rem 1.2rem;
+
+    border-radius:16px;
+
+    font-size:1rem;
+
+    line-height:1.6;
+
+}
+
+
+
+.correct-feedback{
+
+    background:#edf9ef;
+
+    color:#2f7d32;
+
+}
+
+
+
+.incorrect-feedback{
+
+    background:#fff1f1;
+
+    color:#c62828;
+
+}
+
+
+
+/* ======================================================
+   Buttons
+====================================================== */
+
+.quiz-buttons{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:2rem;
+
+}
+
+
+
+.quiz-buttons button{
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:.95rem 1.6rem;
+
+    cursor:pointer;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+
+
+#checkBtn{
+
+    background:var(--accent);
+
+    color:white;
+
+}
+
+
+
+#checkBtn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+        0 12px 25px rgba(107,138,90,.35);
+
+}
+
+
+
+#nextBtn{
+
+    background:var(--green);
+
+    color:var(--text);
+
+}
+
+
+
+#previousBtn{
+
+    background:white;
+
+    color:var(--text);
+
+    border:1px solid #ddd;
+
+}
+
+
+
+.quiz-buttons button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+    box-shadow:none;
+
+}
+
+
+
+/* ======================================================
+   Results
+====================================================== */
+
+.results-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:70vh;
+
+}
+
+
+
+.results-card{
+
+    max-width:620px;
+
+    width:100%;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:30px;
+
+    padding:3rem;
+
+    text-align:center;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.08);
+
+}
+
+
+
+.results-icon{
+
+    width:85px;
+
+    height:85px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--accent);
+
+    font-size:2rem;
+
+    margin-bottom:1.5rem;
+
+}
+
+
+
+.score-circle{
+
+    width:150px;
+
+    height:150px;
+
+    margin:2rem auto;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--green),
+
+        white
+
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    color:var(--accent);
+
+}
+
+
+
+.results-stats{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin:2rem 0;
+
+}
+
+
+
+.stat{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:.4rem;
+
+}
+
+
+
+.stat-number{
+
+    font-size:2rem;
+
+    font-weight:700;
+
+    color:var(--accent);
+
+}
+
+
+
+.stat-label{
+
+    color:#777;
+
+}
+
+
+
+.results-buttons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1rem;
+
+    margin-top:2rem;
+
+}
+
+
+
+.primary-btn{
+
+    background:var(--accent);
+
+    color:white;
+
+}
+
+
+
+.secondary-btn{
+
+    background:white;
+
+    border:1px solid #ddd;
+
+}
+
+
+
+/* ======================================================
+   Mobile
+====================================================== */
+
+@media(max-width:768px){
+
+    .quiz-container{
+
+        padding:1.4rem;
+
+    }
+
+    .options{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .quiz-buttons{
+
+        flex-direction:column;
+
+        gap:.8rem;
+
+    }
+
+    .results-stats{
+
+        flex-direction:column;
+
+        gap:1.2rem;
+
+    }
+
+}
+.question-count{
+
+    margin-top:2rem;
+
+    text-align:center;
+
+}
+
+.question-count h3{
+
+    margin-bottom:1rem;
+
+}
+
+.count-options{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:.8rem;
+
+    flex-wrap:wrap;
+
+}
+
+.count-options input{
+
+    display:none;
+
+}
+
+.count-options span{
+
+    display:inline-block;
+
+    padding:.7rem 1.3rem;
+
+    border-radius:999px;
+
+    background:white;
+
+    border:1px solid #ddd;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.count-options input:checked + span{
+
+    background:var(--accent);
+
+    color:white;
+
+    border-color:var(--accent);
+
+}

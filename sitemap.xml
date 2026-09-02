@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://matricmadeeasy.netlify.app/</loc>
+  </url>
+
+  <url>
+    <loc>https://matricmadeeasy.netlify.app/subjects</loc>
+  </url>
+
+  <url>
+    <loc>https://matricmadeeasy.netlify.app/notes</loc>
+  </url>
+
+  <url>
+    <loc>https://matricmadeeasy.netlify.app/practice</loc>
+  </url>
+
+  <url>
+    <loc>https://matricmadeeasy.netlify.app/questionbank</loc>
+  </url>
+
+  <url>
+    <loc>https://matricmadeeasy.netlify.app/resources</loc>
+  </url>
+
+</urlset>

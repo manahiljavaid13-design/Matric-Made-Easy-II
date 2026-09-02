@@ -1,0 +1,720 @@
+/* =========================================================
+   MME REVISION NOTES — CONTENT STYLES
+   =========================================================
+
+   IMPORTANT:
+   This file ONLY styles the actual revision-note content
+   loaded from Supabase.
+
+   It does NOT style:
+   - Navbar
+   - Sidebar
+   - Chapter list
+   - Subtopic navigation
+   - Scroll-to-top button
+   - Page layout outside the note itself
+
+   The HTML stored in Supabase uses:
+   h1, h2, h3, p, strong, ul, ol
+   and the special .note-* classes below.
+   ========================================================= */
+
+
+/* =========================================================
+   1. NOTE CONTAINER
+   =========================================================
+
+   .note-content is the wrapper around ALL of the HTML
+   fetched from Supabase.
+
+   This controls the width of the actual revision note.
+   ========================================================= */
+
+.note-content {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   2. MAIN NOTE TITLE
+   =========================================================
+
+   Example:
+
+   <h1>Specific Heat Capacity</h1>
+
+   This is the BIG title at the top of the note.
+
+   We use Playfair Display here to give the title that
+   slightly academic / elegant look.
+   ========================================================= */
+
+.note-content > h1 {
+    margin: 0;
+
+    font-family: var(--notes-heading-font);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   3. INTRODUCTION / DESCRIPTION
+   =========================================================
+
+   The first paragraph immediately underneath the title.
+
+   Example:
+
+   <h1>Specific Heat Capacity</h1>
+
+   <p>
+       The amount of energy required...
+   </p>
+
+   This is intentionally lighter and softer than the
+   actual note content.
+
+   The divider below it separates the heading area
+   from the actual revision content.
+   ========================================================= */
+
+.note-content > h1 + p {
+    margin: 10px 0 22px;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: #70756F;
+}
+
+
+/* =========================================================
+   4. DIVIDER AFTER TITLE / INTRO
+   =========================================================
+
+   Creates the thin horizontal line underneath the
+   title + description.
+
+   This keeps the top of every note visually clean.
+   ========================================================= */
+
+.note-content > h1 + p::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin-top: 24px;
+
+    background: var(--notes-border);
+}
+
+
+/* =========================================================
+   5. NORMAL PARAGRAPHS
+   =========================================================
+
+   Example:
+
+   <p>
+       Different materials require different amounts
+       of energy...
+   </p>
+
+   This is the standard body text throughout the note.
+   ========================================================= */
+
+.note-content p {
+    margin: 0 0 14px;
+
+    font-family: var(--notes-body-font);
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   6. SECTION HEADINGS
+   =========================================================
+
+   Example:
+
+   <h2>The Formula</h2>
+
+   These divide the note into major sections.
+
+   They are intentionally much simpler than the main
+   h1 title.
+   ========================================================= */
+
+.note-content h2 {
+    margin: 32px 0 14px;
+
+    font-family: var(--notes-body-font);
+
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   7. SMALLER HEADINGS
+   =========================================================
+
+   Example:
+
+   <h3>Definition</h3>
+
+   Used inside cards or for smaller sections.
+   ========================================================= */
+
+.note-content h3 {
+    margin: 22px 0 9px;
+
+    font-family: var(--notes-body-font);
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   8. BOLD / IMPORTANT TEXT
+   =========================================================
+
+   Example:
+
+   <strong>specific heat capacity</strong>
+
+   Makes important words stand out without needing
+   another coloured box.
+   ========================================================= */
+
+.note-content strong {
+    font-weight: 700;
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   9. SAGE HIGHLIGHT
+   =========================================================
+
+   Supabase:
+
+   <span class="note-highlight">
+       specific heat capacity
+   </span>
+
+   Produces a small sage-coloured highlight behind
+   important terminology.
+
+   This is NOT a huge box — just an inline highlight.
+   ========================================================= */
+
+.note-highlight {
+    display: inline;
+
+    padding: 2px 6px;
+
+    background: #CCD5AE;
+
+    border-radius: 4px;
+
+    color: var(--mme-green);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   10. BASIC CARD
+   =========================================================
+
+   Supabase:
+
+   <div class="note-card">
+       ...
+   </div>
+
+   This is the most neutral card.
+
+   Think:
+   "I want to group this information together."
+
+   Very subtle. White background, thin border,
+   tiny shadow.
+   ========================================================= */
+
+.note-card {
+    margin: 22px 0;
+    padding: 20px 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+
+/* =========================================================
+   11. DEFINITION CARD
+   =========================================================
+
+   Supabase:
+
+   <div class="note-definition">
+       ...
+   </div>
+
+   This is specifically for definitions.
+
+   The LEFT green line is the main visual identifier.
+
+   Example appearance:
+
+   | Definition
+   | Specific heat capacity is...
+   ========================================================= */
+
+.note-definition {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+/* Definition heading */
+
+.note-definition h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   12. KEY IDEA CARD
+   =========================================================
+
+   Supabase:
+
+   <div class="note-key-idea">
+       ...
+   </div>
+
+   Used when something is conceptually important.
+
+   Same simple design language as the definition card.
+   ========================================================= */
+
+.note-key-idea {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+.note-key-idea h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   13. FORMULA BOX
+   =========================================================
+
+   Supabase:
+
+   <div class="note-formula">
+       \[ Q = mc\Delta T \]
+   </div>
+
+   Formulas get their own subtle box so they are easy
+   to find when revising.
+
+   It is intentionally NOT bright green.
+   ========================================================= */
+
+.note-formula {
+    margin: 20px 0;
+    padding: 18px 20px;
+
+    background: #F5F7EF;
+
+    border: 1px solid #DDE3CF;
+
+    border-radius: 9px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   14. VARIABLES / "WHERE" BOX
+   =========================================================
+
+   Supabase:
+
+   <div class="note-variables">
+       <h3>Where:</h3>
+       ...
+   </div>
+
+   Used directly underneath a formula to explain
+   what each symbol means.
+   ========================================================= */
+
+.note-variables {
+    margin: 16px 0 22px;
+    padding: 16px 20px;
+
+    background: #FAFAF8;
+
+    border: 1px solid #E5E7E2;
+
+    border-radius: 9px;
+}
+
+
+.note-variables h3 {
+    margin: 0 0 10px;
+
+    font-size: 14px;
+
+    color: var(--mme-green);
+}
+
+
+.note-variables p {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   15. WORKED EXAMPLE
+   =========================================================
+
+   Supabase:
+
+   <div class="note-example">
+       ...
+   </div>
+
+   Used for worked calculations or worked questions.
+
+   It is slightly more spacious than a normal card.
+   ========================================================= */
+
+.note-example {
+    margin: 24px 0;
+    padding: 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E1E5DD;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+
+.note-example > h3 {
+    margin: 0 0 14px;
+
+    font-size: 18px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   16. EXAMINER TIP
+   =========================================================
+
+   Supabase:
+
+   <div class="note-tip">
+       ...
+   </div>
+
+   This uses the SAME visual language as the definition
+   card rather than introducing another random colour.
+   ========================================================= */
+
+.note-tip {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+.note-tip h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   17. IMPORTANT WARNING
+   =========================================================
+
+   Supabase:
+
+   <div class="note-important">
+       ...
+   </div>
+
+   Used when the student REALLY needs to remember
+   something or avoid a common mistake.
+
+   Still kept minimal — no giant coloured box.
+   ========================================================= */
+
+.note-important {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+.note-important h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   18. PRACTICE QUESTION
+   =========================================================
+
+   Supabase:
+
+   <div class="note-practice">
+       ...
+   </div>
+
+   This separates a question from the explanatory
+   content of the note.
+
+   Again: simple white card + sage accent.
+   ========================================================= */
+
+.note-practice {
+    margin: 24px 0;
+    padding: 20px 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E1E5DD;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 10px;
+}
+
+
+.note-practice h3 {
+    margin: 0 0 12px;
+
+    font-size: 17px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   19. LISTS
+   =========================================================
+
+   Normal <ul> and <ol> lists inside the notes.
+
+   Example:
+
+   <ul>
+       <li>Convex lens</li>
+       <li>Concave lens</li>
+   </ul>
+   ========================================================= */
+
+.note-content ul,
+.note-content ol {
+    margin: 12px 0 18px;
+
+    padding-left: 25px;
+}
+
+
+.note-content li {
+    margin-bottom: 7px;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: var(--notes-text);
+}
+
+
+/* Make list bullets use the MME green */
+
+.note-content li::marker {
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   20. VIDEO
+   =========================================================
+
+   Supabase:
+
+   <div class="note-video">
+       <iframe ...></iframe>
+   </div>
+
+   This keeps the YouTube video responsive instead of
+   giving it a random fixed size.
+   ========================================================= */
+
+.note-video {
+    margin: 24px 0;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #F5F5F5;
+}
+
+
+.note-video iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* =========================================================
+   21. MATHJAX
+   =========================================================
+
+   MathJax creates the actual mathematical equations.
+
+   This simply gives equations some breathing room.
+   ========================================================= */
+
+.note-content mjx-container[display="true"] {
+    margin: 18px 0 !important;
+}
+
+
+/* =========================================================
+   22. MOBILE
+   =========================================================
+
+   On smaller screens we reduce the title size and
+   card padding so the notes don't feel cramped.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .note-content > h1 {
+        font-size: 34px;
+    }
+
+
+    .note-content h2 {
+        font-size: 22px;
+    }
+
+
+    .note-content h3 {
+        font-size: 17px;
+    }
+
+
+    .note-content p,
+    .note-content li {
+        font-size: 15px;
+    }
+
+
+    .note-card,
+    .note-definition,
+    .note-key-idea,
+    .note-example,
+    .note-tip,
+    .note-important,
+    .note-practice {
+
+        padding: 17px 18px;
+    }
+
+
+    .note-formula {
+        padding: 16px;
+    }
+
+}

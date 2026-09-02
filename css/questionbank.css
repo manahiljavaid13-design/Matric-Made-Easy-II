@@ -1,0 +1,2126 @@
+/*NAVBAR */
+.navbar{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    border-bottom: 1px solid rgba(90, 90, 90, 0.15);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-name{
+   font-weight: 900;
+   font-size: 17px;
+   font-style:normal;
+   color: #2D5016;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  position: relative;
+  color: inherit;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 100%;
+  height: 0.85px;
+  background: var(--green-mid);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+/*logo */
+.logo{
+    width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+}
+/*=========================================================
+    MATRIC MADE EASY
+    QUESTION BANK
+    PART 1/4
+    Global Layout + Navbar + Header + Filters
+=========================================================*/
+
+/*==============================
+        GOOGLE FONT RESET
+==============================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:#ffffff;
+
+    color:#333;
+
+    overflow-x:hidden;
+
+    line-height:1.5;
+
+}
+
+
+/*==============================
+        VARIABLES
+==============================*/
+
+:root{
+
+    --olive:#567a3b;
+
+    --olive-dark:#3e4d2d;
+
+    --olive-light:#ccd5ae;
+
+    --olive-soft:#edf1e4;
+
+    --white:#ffffff;
+
+    --grey:#f5f5f5;
+
+    --text:#333333;
+
+    --shadow:
+
+        0 8px 28px rgba(0,0,0,.07);
+
+    --radius:22px;
+
+    --transition:.28s ease;
+
+}
+
+
+/*==============================
+        NAVBAR
+==============================*/
+
+.navbar{
+
+    width:100%;
+
+    background:white;
+
+    border-bottom:1px solid #ececec;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 60px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.logo{
+
+    height:62px;
+
+    width:auto;
+
+}
+
+.brand-name{
+
+    font-size:1.45rem;
+
+    font-weight:700;
+
+    color:var(--olive);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:38px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.nav-links a:hover{
+
+    color:var(--olive);
+
+}
+
+
+/*==============================
+      PAGE CONTAINER
+==============================*/
+
+.page-container{
+
+    width:min(1500px,94%);
+
+    margin:auto;
+
+}
+
+
+/*==============================
+          HEADER
+==============================*/
+
+.qb-header{
+
+    padding:45px 0 28px;
+
+}
+
+#subject-title{
+
+    font-size:3rem;
+
+    color:#2d5016;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+    font-family: Fraunces serif;
+
+}
+
+#subject-description{
+
+    color:#666;
+
+    font-size:1.05rem;
+
+    max-width:720px;
+
+}
+
+
+/*==============================
+        FILTER BAR
+==============================*/
+
+.filter-section{
+
+    background:var(--olive-soft);
+
+    border-radius:28px;
+
+    padding:20px;
+
+    margin:28px 0;
+
+    box-shadow:var(--shadow);
+
+}
+
+.filter-row{
+
+    display:grid;
+
+    grid-template-columns:
+
+        2.9fr
+
+        1fr
+
+        1fr
+
+        1fr
+
+        1fr
+
+        auto;
+
+    gap:14px;
+
+    align-items:center;
+
+}
+
+
+/*==============================
+      INPUTS
+==============================*/
+
+.filter-row input,
+
+.filter-row select{
+
+    height:56px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    padding:0 18px;
+
+    font-family:inherit;
+
+    font-size:.95rem;
+
+    transition:var(--transition);
+
+    box-shadow:
+
+        inset 0 0 0 1px #e3e3e3;
+
+}
+
+.filter-row input:focus,
+
+.filter-row select:focus{
+
+    outline:none;
+
+    box-shadow:
+
+        0 0 0 4px rgba(86,122,59,.18);
+
+}
+
+
+/*==============================
+      RESET BUTTON
+==============================*/
+
+#reset-filters{
+
+    height:56px;
+
+    padding:0 24px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:var(--olive);
+
+    color:white;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+#reset-filters:hover{
+
+    background:var(--olive-dark);
+
+    transform:translateY(-2px);
+
+}
+
+
+/*==============================
+        STATS BAR
+==============================*/
+.stats-bar{
+
+    display:grid;
+
+    grid-template-columns:1fr 420px;
+
+    gap:32px;
+
+    align-items:center;
+
+    margin:28px 0;
+
+}
+
+#question-count{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+}
+
+#progress-summary{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+    background:white;
+
+    padding:14px 22px;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+
+/*==============================
+        SMALL TAGS
+==============================*/
+
+.progress-pill{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:var(--grey);
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+}
+
+
+/*==============================
+      RESPONSIVE
+==============================*/
+
+@media(max-width:1200px){
+
+.filter-row{
+
+grid-template-columns:
+
+1fr
+
+1fr
+
+1fr;
+
+}
+
+#search-input{
+
+grid-column:1/-1;
+
+}
+
+#reset-filters{
+
+grid-column:1/-1;
+
+}
+
+}
+
+
+@media(max-width:850px){
+
+.navbar{
+
+padding:20px;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.nav-links{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.stats-bar{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.filter-row{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.filter-row>*{
+
+width:100%;
+
+}
+
+}
+/*=========================================================
+    MATRIC MADE EASY
+    QUESTION BANK
+    PART 2/4
+    Question List + Cards
+=========================================================*/
+
+
+/*==============================
+        MAIN LAYOUT
+==============================*/
+
+.questionbank-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        420px;
+
+    gap:32px;
+
+    align-items:start;
+
+    margin-bottom:50px;
+
+}
+
+
+/*==============================
+      QUESTIONS PANEL
+==============================*/
+
+.questions-panel{
+
+    width:100%;
+
+    min-width:0;
+
+}
+
+
+/*==============================
+      QUESTIONS CONTAINER
+==============================*/
+
+#questions-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+/*==============================
+        QUESTION CARD
+==============================*/
+
+.question-card{
+
+    display:grid;
+
+    grid-template-columns:
+        90px
+        1fr
+        42px;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:16px 20px;
+
+    min-height:88px;
+
+    width:100%;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    border:2px solid transparent;
+
+}
+
+.question-card:hover{
+
+    transform:translateY(-3px);
+
+    background:#fafcf6;
+
+    border-color:#d8e2c4;
+
+}
+
+
+/*==============================
+      SELECTED CARD
+==============================*/
+
+.question-card.selected{
+
+    background:var(--olive-soft);
+
+    border-color:var(--olive);
+
+    box-shadow:
+
+        0 10px 24px rgba(86,122,59,.16);
+
+}
+
+
+/*==============================
+      LEFT SECTION
+==============================*/
+
+.question-left{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/*==============================
+        UNIT BADGE
+==============================*/
+
+.unit-badge{
+
+    width:68px;
+
+    height:40px;
+
+    border-radius:18px;
+
+    background:#ccd5ae;
+
+    color:rgb(0, 0, 0);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+    font-size:.9rem;
+
+    letter-spacing:.4px;
+
+}
+
+
+/*==============================
+      QUESTION CONTENT
+==============================*/
+
+.question-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    min-width:0;
+
+}
+
+
+/*==============================
+      CHAPTER NAME
+==============================*/
+
+.chapter-name{
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+    color:var(--olive);
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+
+    margin-bottom:5px;
+
+}
+
+
+/*==============================
+      QUESTION TEXT
+==============================*/
+
+.question-text{
+
+    font-size:1rem;
+
+    font-weight:500;
+
+    color:#333;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    white-space:nowrap;
+
+}
+
+
+/*==============================
+      META INFORMATION
+==============================*/
+
+.question-meta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-top:8px;
+
+    font-size:.82rem;
+
+    color:#777;
+
+}
+
+.question-meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+}
+
+
+/*==============================
+      STATUS ICON
+==============================*/
+
+.question-status{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:1.5rem;
+
+}
+
+
+/*==============================
+      STATUS COLOURS
+==============================*/
+
+.status-not-started{
+
+    color:#b7b7b7;
+
+}
+
+.status-revision{
+
+    color:#d8a500;
+
+}
+
+.status-mastered{
+
+    color:#2eaf53;
+
+}
+
+
+/*==============================
+      TYPE BADGES
+==============================*/
+
+.type-short,
+
+.type-long{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+}
+
+.type-short{
+
+    background:#edf5ff;
+
+    color:#2979ff;
+
+}
+
+.type-long{
+
+    background:#fff5e6;
+
+    color:#e67e22;
+
+}
+
+
+/*==============================
+      YEAR BADGE
+==============================*/
+
+.year-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:4px 10px;
+
+    border-radius:999px;
+
+    background:#f1f1f1;
+
+    font-size:.72rem;
+
+    font-weight:600;
+
+}
+
+
+/*==============================
+      EMPTY STATE
+==============================*/
+
+.empty-state{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:70px 40px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.empty-state h2{
+
+    color:var(--olive);
+
+    margin-bottom:12px;
+
+}
+
+.empty-state p{
+
+    color:#777;
+
+}
+
+
+/*==============================
+      SCROLLBAR
+==============================*/
+
+#questions-container::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+#questions-container::-webkit-scrollbar-thumb{
+
+    background:#d2dcb8;
+
+    border-radius:20px;
+
+}
+
+#questions-container::-webkit-scrollbar-thumb:hover{
+
+    background:var(--olive);
+
+}
+
+
+/*==============================
+      TABLET
+==============================*/
+
+@media(max-width:1100px){
+
+.questionbank-layout{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
+/*==============================
+      MOBILE
+==============================*/
+
+@media(max-width:700px){
+
+.question-card{
+
+grid-template-columns:1fr;
+
+gap:14px;
+
+padding:18px;
+
+}
+
+.question-left{
+
+justify-content:flex-start;
+
+}
+
+.unit-badge{
+
+width:58px;
+
+height:58px;
+
+}
+
+.question-status{
+
+justify-content:flex-start;
+
+}
+
+.question-text{
+
+white-space:normal;
+
+}
+
+}
+/*=========================================================
+    MATRIC MADE EASY
+    QUESTION BANK
+    PART 3/4
+    Preview Panel + Status Buttons
+=========================================================*/
+
+
+/*==============================
+        PREVIEW PANEL
+==============================*/
+
+.preview-panel{
+
+    position:sticky;
+
+   
+
+    align-self:start;
+
+    width:100%;
+
+}
+
+#preview-placeholder,
+#question-preview{
+
+    position:sticky;
+
+    top:24px;
+
+}
+.questionbank-layout{
+
+    display:grid;
+
+    grid-template-columns:minmax(0,1fr) 420px;
+
+    gap:30px;
+
+    align-items:start;
+
+}
+.preview-panel{
+
+    align-self:start;
+
+}
+
+#question-preview,
+#preview-placeholder{
+
+    position:sticky;
+
+    top:20px;
+
+    max-height:calc(100vh - 40px);
+
+    overflow-y:auto;
+
+}
+
+/*==============================
+      PREVIEW CARD
+==============================*/
+
+#preview-placeholder,
+#question-preview{
+
+    background:white;
+
+    border-radius:26px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+/*==============================
+      EMPTY PREVIEW
+==============================*/
+
+.preview-empty{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    min-height:420px;
+
+}
+
+.preview-empty h2{
+
+    color:var(--olive);
+
+    font-size:1.6rem;
+
+    margin-bottom:14px;
+
+}
+
+.preview-empty p{
+
+    color:#777;
+
+    max-width:260px;
+
+    line-height:1.6;
+
+}
+
+
+/*==============================
+      PREVIEW HEADER
+==============================*/
+
+.preview-header{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:22px;
+
+}
+
+
+/*==============================
+      TOP BADGES
+==============================*/
+
+#preview-type,
+#preview-year{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    background:var(--olive-soft);
+
+    color:var(--olive);
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+
+/*==============================
+      QUESTION TITLE
+==============================*/
+
+#preview-question{
+
+    font-size:1.45rem;
+
+    line-height:1.5;
+
+    margin-bottom:26px;
+
+    color:#333;
+
+}
+
+
+/*==============================
+      DIVIDERS
+==============================*/
+
+.progress-card,
+.solution-card{
+
+    margin-top:28px;
+
+    padding-top:24px;
+
+    border-top:1px solid #ececec;
+
+}
+
+
+/*==============================
+      SECTION TITLES
+==============================*/
+
+.progress-card h3,
+.solution-card h3{
+
+    color:var(--olive);
+
+    font-size:1.05rem;
+
+    margin-bottom:18px;
+
+}
+
+
+/*==============================
+      STATUS BUTTONS
+==============================*/
+
+.status-buttons{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:12px;
+
+}
+
+
+/*==============================
+      BUTTON BASE
+==============================*/
+
+.status-buttons button{
+
+    height:50px;
+
+    border-radius:16px;
+
+    border:2px solid var(--olive-light);
+
+    background:white;
+
+    font-family:inherit;
+
+    font-size:.92rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+
+/*==============================
+      HOVER
+==============================*/
+
+.status-buttons button:hover{
+
+    transform:translateY(-2px);
+
+    border-color:var(--olive);
+
+}
+
+
+/*==============================
+      ACTIVE
+==============================*/
+
+.status-buttons button.active{
+
+    background:var(--olive);
+
+    color:white;
+
+    border-color:var(--olive);
+
+}
+
+
+/*==============================
+      INDIVIDUAL BUTTONS
+==============================*/
+
+#mark-not-started{
+
+    color:#777;
+
+}
+
+#mark-revision{
+
+    color:#c69200;
+
+}
+
+#mark-mastered{
+
+    color:#239348;
+
+}
+
+
+/* active overrides */
+
+#mark-not-started.active,
+#mark-revision.active,
+#mark-mastered.active{
+
+    color:white;
+
+}
+
+
+/*==============================
+      SOLUTION BOX
+==============================*/
+
+.solution-card{
+
+    background:#fafcf7;
+
+    border-radius:18px;
+
+    padding:24px;
+
+    margin-top:28px;
+
+    border:1px solid #edf1e4;
+
+}
+
+
+.solution-card h3{
+
+    margin-bottom:12px;
+
+}
+
+
+.solution-card p{
+
+    color:#666;
+
+    line-height:1.65;
+
+    margin-bottom:10px;
+
+}
+
+
+.solution-card p:first-of-type{
+
+    font-weight:600;
+
+    color:var(--olive);
+
+}
+
+
+/*==============================
+      HIDDEN
+==============================*/
+
+.hidden{
+
+    display:none !important;
+
+}
+
+
+/*==============================
+      FADE IN
+==============================*/
+
+#question-preview{
+
+    animation:previewFade .25s ease;
+
+}
+
+
+@keyframes previewFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*==============================
+      TABLET
+==============================*/
+
+@media(max-width:1100px){
+
+.preview-panel{
+
+position:relative;
+
+top:0;
+
+margin-top:24px;
+
+}
+
+.preview-empty{
+
+min-height:250px;
+
+}
+
+}
+
+
+/*==============================
+      MOBILE
+==============================*/
+
+@media(max-width:700px){
+
+#preview-placeholder,
+#question-preview{
+
+padding:22px;
+
+}
+
+#preview-question{
+
+font-size:1.2rem;
+
+}
+
+.status-buttons button{
+
+height:48px;
+
+font-size:.88rem;
+
+}
+
+.solution-card{
+
+padding:18px;
+
+}
+
+}
+/*=========================================================
+    MATRIC MADE EASY
+    QUESTION BANK
+    PART 4/4
+    Utilities • Animations • Finishing Touches
+=========================================================*/
+
+
+/*==============================
+        SMOOTH ANIMATIONS
+==============================*/
+
+@keyframes cardFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.question-card{
+
+    animation:cardFade .25s ease;
+
+}
+
+
+/*==============================
+      BUTTON CLICK
+==============================*/
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+
+/*==============================
+      INPUT PLACEHOLDER
+==============================*/
+
+::placeholder{
+
+    color:#999;
+
+    opacity:1;
+
+}
+
+
+/*==============================
+      SELECTION
+==============================*/
+
+::selection{
+
+    background:var(--olive-light);
+
+    color:#222;
+
+}
+
+
+/*==============================
+      CUSTOM SCROLLBAR
+==============================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#efefef;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#cdd6b0;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--olive);
+
+}
+
+
+/*==============================
+      INPUT TRANSITIONS
+==============================*/
+
+input,
+select,
+button{
+
+    transition:
+
+        background .25s,
+
+        color .25s,
+
+        border-color .25s,
+
+        transform .25s,
+
+        box-shadow .25s;
+
+}
+
+
+/*==============================
+      REMOVE DEFAULT
+==============================*/
+
+button{
+
+    outline:none;
+
+}
+
+input{
+
+    outline:none;
+
+}
+
+select{
+
+    outline:none;
+
+    cursor:pointer;
+
+}
+
+
+/*==============================
+      NICE DROPDOWN ARROW
+==============================*/
+
+select{
+
+    appearance:none;
+
+    -webkit-appearance:none;
+
+    -moz-appearance:none;
+
+    background-image:
+
+    linear-gradient(45deg,transparent 50%,#666 50%),
+
+    linear-gradient(135deg,#666 50%,transparent 50%);
+
+    background-position:
+
+        calc(100% - 18px) 24px,
+
+        calc(100% - 12px) 24px;
+
+    background-size:6px 6px;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/*==============================
+      SEARCH ICON SPACING
+==============================*/
+
+#search-input{
+
+    padding-left:22px;
+
+}
+
+
+/*==============================
+      FOCUS RING
+==============================*/
+
+input:focus,
+select:focus{
+
+    border-color:var(--olive);
+
+    box-shadow:
+
+        0 0 0 4px rgba(86,122,59,.15);
+
+}
+
+
+/*==============================
+      LOADING STATE
+==============================*/
+
+.loading{
+
+    opacity:.6;
+
+    pointer-events:none;
+
+}
+
+
+/*==============================
+      SKELETON
+==============================*/
+
+.skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#ececec;
+
+}
+
+.skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:120%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.6),
+
+        transparent
+
+    );
+
+    animation:skeletonMove 1.2s infinite;
+
+}
+
+@keyframes skeletonMove{
+
+    to{
+
+        left:120%;
+
+    }
+
+}
+
+
+/*==============================
+      STATUS INDICATORS
+==============================*/
+
+.status-mastered{
+
+    color:#1ba84a;
+
+}
+
+.status-revision{
+
+    color:#d79d00;
+
+}
+
+.status-not-started{
+
+    color:#b7b7b7;
+
+}
+
+
+/*==============================
+      HOVER GLOW
+==============================*/
+
+.question-card.selected{
+
+    box-shadow:
+
+        0 10px 24px rgba(86,122,59,.18),
+
+        0 0 0 2px rgba(86,122,59,.08);
+
+}
+
+
+/*==============================
+      BADGE HOVER
+==============================*/
+
+.unit-badge{
+
+    transition:.25s;
+
+}
+
+.question-card:hover .unit-badge{
+
+    transform:scale(1.06);
+
+}
+
+
+/*==============================
+      PREVIEW ANIMATION
+==============================*/
+
+.preview-panel{
+
+    animation:cardFade .35s ease;
+
+}
+
+
+/*==============================
+      EMPTY MESSAGE
+==============================*/
+
+.preview-empty p{
+
+    font-size:.95rem;
+
+}
+
+
+/*==============================
+      LINKS
+==============================*/
+
+a{
+
+    transition:.25s;
+
+}
+
+
+/*==============================
+      DISABLED BUTTON
+==============================*/
+
+button:disabled{
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+}
+
+
+/*==============================
+      PRINT
+==============================*/
+
+@media print{
+
+.navbar,
+.filter-section,
+.stats-bar,
+.preview-panel{
+
+display:none;
+
+}
+
+.page-container{
+
+width:100%;
+
+margin:0;
+
+}
+
+.questionbank-layout{
+
+display:block;
+
+}
+
+.question-card{
+
+page-break-inside:avoid;
+
+box-shadow:none;
+
+border:1px solid #ccc;
+
+margin-bottom:10px;
+
+}
+
+}
+
+
+/*==============================
+      LARGE DESKTOP
+==============================*/
+
+@media(min-width:1700px){
+
+.page-container{
+
+max-width:1650px;
+
+}
+
+.questionbank-layout{
+
+grid-template-columns:
+
+minmax(0,1fr)
+
+460px;
+
+}
+
+}
+
+
+/*==============================
+      TABLET
+==============================*/
+
+@media(max-width:1100px){
+
+.filter-row{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+}
+
+#search-input{
+
+grid-column:1/-1;
+
+}
+
+#reset-filters{
+
+grid-column:1/-1;
+
+}
+
+.stats-bar{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.questionbank-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.preview-panel{
+
+position:relative;
+
+top:0;
+
+margin-top:24px;
+
+}
+
+}
+
+
+/*==============================
+      MOBILE
+==============================*/
+
+@media(max-width:700px){
+
+.page-container{
+
+width:95%;
+
+}
+
+.navbar{
+
+padding:18px;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.brand{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.nav-links{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:16px;
+
+}
+
+.qb-header{
+
+text-align:center;
+
+}
+
+#subject-title{
+
+font-size:2rem;
+
+}
+
+.filter-row{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.filter-row>*{
+
+width:100%;
+
+}
+
+.question-card{
+
+grid-template-columns:1fr;
+
+padding:18px;
+
+gap:12px;
+
+}
+
+.question-left{
+
+justify-content:flex-start;
+
+}
+
+.question-status{
+
+justify-content:flex-start;
+
+font-size:1.35rem;
+
+}
+
+.question-text{
+
+white-space:normal;
+
+}
+
+.status-buttons{
+
+gap:10px;
+
+}
+
+.status-buttons button{
+
+width:100%;
+
+}
+
+#preview-placeholder,
+#question-preview{
+
+padding:22px;
+
+}
+
+}
+
+
+/*==============================
+      END
+==============================*/
+
+/*
+
+Question Bank Stylesheet
+Created for Matric Made Easy
+
+Features Included
+
+✓ Olive theme
+✓ Responsive layout
+✓ Sticky preview panel
+✓ Slim question cards
+✓ Modern filter bar
+✓ Hover animations
+✓ Skeleton loading
+✓ Custom scrollbar
+✓ Responsive navbar
+✓ Print support
+✓ Utility classes
+✓ Smooth transitions
+
+*/

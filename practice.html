@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice | Matric Made Easy</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/practice.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+            <img class="logo" src="assets/logo2.png">
+            <p class="brand-name">Matric Made Easy</p>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Dashboard</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- ================= PAGE ================= -->
+
+    <main class="practice-page">
+
+        <!-- ================= Landing Screen ================= -->
+
+        <div id="landingSection">
+
+            <!-- Back Button -->
+
+            <a id="backBtn" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </a>
+
+            <!-- Heading -->
+
+            <div class="page-header">
+
+                <h1 id="pageTitle"></h1>
+
+                <p id="pageDescription"></p>
+
+            </div>
+
+            <!-- ================= Setup ================= -->
+
+            <section id="setupSection">
+
+                <!-- Left Column -->
+                <!-- Chapters are inserted dynamically -->
+
+                <div id="chapterList"></div>
+
+                <!-- Right Column -->
+
+                <aside class="practice-sidebar">
+
+                    <!-- Question Count -->
+
+                    <div class="question-count">
+
+                        <h3>Number of Questions</h3>
+
+                        <div class="count-options">
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="questionCount"
+                                    value="10"
+                                >
+                                <span>10</span>
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="questionCount"
+                                    value="20"
+                                    checked
+                                >
+                                <span>20</span>
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="questionCount"
+                                    value="30"
+                                >
+                                <span>30</span>
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="questionCount"
+                                    value="50"
+                                >
+                                <span>50</span>
+                            </label>
+
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="questionCount"
+                                    value="-1"
+                                >
+                                <span>All</span>
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Start Button -->
+
+                    <button id="startBtn">
+
+                        <i class="fa-solid fa-play"></i>
+
+                        <span>Start Practice</span>
+
+                    </button>
+
+                </aside>
+
+            </section>
+
+        </div>
+
+        <!-- ================= Practice Screen ================= -->
+
+        <section id="practiceSection" class="hidden">
+
+            <!-- Generated entirely by mcq.js -->
+
+        </section>
+
+    </main>
+
+    <!-- ================= Scripts ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <script src="js/supabase.js"></script>
+
+    <script src="js/mcqSetup.js"></script>
+
+    <script src="js/mcq.js"></script>
+
+</body>
+</html>

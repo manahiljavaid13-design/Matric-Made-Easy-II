@@ -1,0 +1,1359 @@
+/* =========================================================
+   MME NOTES — DESIGN TOKENS
+   ========================================================= */
+
+:root {
+
+    /* MME colours */
+    --mme-sage: #C9D3A8;
+    --mme-green: #385C43;
+    --mme-brown: #C19B72;
+    --mme-cream: #FFFBEA;
+
+    /* Neutrals */
+    --notes-background: #0a0c0015;
+    --notes-surface: #faf8f8;
+
+    --notes-text: #171A17;
+    --notes-text-muted: #62685F;
+
+    --notes-border: #E3E6DC;
+
+    /* Timeline */
+    --timeline-grey: #D6D8D5;
+    --timeline-active: #385C43;
+
+    /* Typography */
+    --notes-heading-font: "Playfair Display", serif;
+    --notes-body-font: "Inter", sans-serif;
+
+    /* Shape */
+    --notes-radius: 10px;
+    --notes-radius-small: 6px;
+
+    /* Layout */
+    --notes-sidebar-width: 320px;
+    --notes-content-width: 900px;
+}
+
+
+/* =========================================================
+   NOTES PAGE
+   ========================================================= */
+
+.notes-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    background: var(--notes-background);
+
+    color: var(--notes-text);
+
+    font-family: var(--notes-body-font);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.notes-sidebar {
+
+    width: var(--notes-sidebar-width);
+
+    min-height: 100vh;
+
+    flex-shrink: 0;
+
+    box-sizing: border-box;
+
+    background: var(--notes-surface);
+
+    border-right: 1px solid var(--notes-border);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transition:
+        width 0.25s ease,
+        border 0.25s ease;
+}
+
+
+/* =========================================================
+   SIDEBAR HEADER
+   ========================================================= */
+
+.sidebar-header {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 28px 24px 8px;
+}
+
+
+.sidebar-header h2 {
+
+    margin: 0;
+
+    font-family: var(--notes-heading-font);
+
+    font-size: 33px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   SIDEBAR SUBJECT
+   ========================================================= */
+
+.sidebar-subject {
+
+    margin: 8px 24px 24px;
+
+    padding: 0 0 14px;
+
+    border-bottom: 1px solid var(--notes-border);
+
+    color: var(--notes-text-muted);
+
+    font-size: 15px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   SIDEBAR TOGGLE
+   ========================================================= */
+
+.sidebar-toggle {
+
+    position: absolute;
+
+    /*
+       The button sits directly on the right edge
+       of the sidebar.
+    */
+    left: calc(var(--notes-sidebar-width) - 18px);
+
+    top: 24px;
+
+    z-index: 1000;
+
+    width: 36px;
+
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 1px solid var(--notes-border);
+
+    border-radius: 50%;
+
+    background: var(--notes-surface);
+
+    color: var(--mme-green);
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        left 0.25s ease,
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+
+.sidebar-toggle:hover {
+
+    background: var(--mme-cream);
+}
+
+
+.sidebar-toggle:active {
+
+    transform: scale(0.95);
+}
+
+
+/*
+   When sidebar is collapsed, the button moves
+   to the left edge so it remains accessible.
+*/
+
+.notes-page.sidebar-collapsed .sidebar-toggle {
+
+    left: 18px;
+}
+
+
+/* =========================================================
+   CHAPTER LIST
+   ========================================================= */
+
+.chapter-list {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CHAPTER
+   ========================================================= */
+
+.chapter {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   CHAPTER HEADER
+   ========================================================= */
+
+.chapter-header {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px 18px;
+
+    box-sizing: border-box;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    font-family: var(--notes-body-font);
+
+    color: var(--notes-text);
+
+    transition:
+        background 0.15s ease;
+}
+
+
+.chapter-header:hover {
+
+    background: #F7F8F3;
+}
+
+
+/* =========================================================
+   CHAPTER NAME
+   ========================================================= */
+
+.chapter-name {
+
+    display: block;
+
+    max-width: 250px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.45;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   CHAPTER ARROW
+   ========================================================= */
+
+.chapter-arrow {
+
+    flex-shrink: 0;
+
+    margin-left: 12px;
+
+    font-size: 13px;
+
+    color: var(--notes-text-muted);
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.chapter.expanded .chapter-arrow {
+
+    transform: rotate(180deg);
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   SUBTOPIC LIST
+   ========================================================= */
+
+.subtopic-list {
+    position: relative;
+
+    display: none;
+
+    margin: 0;
+
+    padding: 4px 18px 12px 34px;
+
+    box-sizing: border-box;
+}
+
+
+.chapter.expanded .subtopic-list {
+
+    display: block;
+}
+
+
+/* =========================================================
+   CONNECTING TIMELINE
+   ========================================================= */
+
+/*
+   The timeline is positioned at exactly the same
+   horizontal coordinate as the centre of the circles.
+*/
+
+.subtopic-list::before {
+    content: "";
+
+    position: absolute;
+
+    /* centre of the circle */
+    left: 46.75px;
+
+    top: 18px;
+    bottom: 18px;
+
+    width: 2px;
+
+    background: var(--timeline-grey);
+
+    z-index: 0;
+}
+
+.subtopic-list:has(.no-subtopics)::before {
+    display: none;
+}
+.no-subtopics {
+    margin: 8px 0 14px;
+    padding-left: 4px;
+
+    color: var(--notes-text-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* =========================================================
+   SUBTOPIC
+   ========================================================= */
+
+.subtopic {
+
+    position: relative;
+
+    display: grid;
+
+    /*
+       Column 1 = circle
+       Column 2 = number
+       Column 3 = title
+    */
+
+    grid-template-columns: 16px 48px minmax(0, 1fr);
+
+    align-items: center;
+
+    min-height: 52px;
+
+    width: 100%;
+
+    padding: 7px 10px;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    border-radius: var(--notes-radius-small);
+
+    color: var(--notes-text-muted);
+
+    transition:
+        color 0.15s ease;
+}
+
+
+/* =========================================================
+   SUBTOPIC CIRCLE
+   ========================================================= */
+
+.subtopic-indicator {
+    position: relative;
+    z-index: 2;
+
+    width: 12px;
+    height: 12px;
+
+    justify-self: center;
+
+    border-radius: 50%;
+
+    background: var(--timeline-grey);
+
+    transform: translateX(-4px);
+
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   SUBTOPIC NUMBER
+   ========================================================= */
+
+.subtopic-number {
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    color: var(--notes-text-muted);
+
+    white-space: nowrap;
+
+    transition:
+        color 0.15s ease,
+        font-weight 0.15s ease;
+}
+
+
+/* =========================================================
+   SUBTOPIC NAME
+   ========================================================= */
+
+.subtopic-name {
+
+    min-width: 0;
+
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    font-weight: 500;
+
+    color: var(--notes-text-muted);
+
+    transition:
+        color 0.15s ease,
+        font-weight 0.15s ease;
+}
+
+
+/* =========================================================
+   SUBTOPIC HOVER
+   ========================================================= */
+
+.subtopic:hover .subtopic-number,
+.subtopic:hover .subtopic-name {
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   ACTIVE SUBTOPIC
+   ========================================================= */
+
+/*
+   NO green background.
+   ONLY the circle becomes green.
+*/
+
+.subtopic.active {
+
+    background: transparent;
+}
+
+
+.subtopic.active .subtopic-indicator {
+    background: var(--mme-green);
+
+    transform: translateX(-4px) scale(1.15);
+}
+
+
+.subtopic.active .subtopic-number,
+.subtopic.active .subtopic-name {
+
+    color: var(--mme-green);
+
+    /*
+       Slightly bolder when selected.
+    */
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+.notes-content {
+
+    flex: 1;
+
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    padding: 50px 60px;
+}
+
+
+/*
+   When sidebar disappears, content naturally
+   expands into the freed space.
+*/
+
+.notes-page.sidebar-collapsed .notes-sidebar {
+
+    width: 0;
+
+    min-width: 0;
+
+    border-right: none;
+
+    overflow: hidden;
+}
+@media (max-width: 800px) {
+
+    .notes-content {
+        padding: 35px 18px 60px;
+    }
+
+}
+
+/* =========================================================
+   SCROLL TO TOP
+========================================================= */
+
+.scroll-to-top {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--notes-border);
+    border-radius: 50%;
+
+    background: var(--mme-green);
+    color: white;
+
+    font-size: 20px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+
+    z-index: 1000;
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    background: #2D4D37;
+}
+
+.scroll-to-top:active {
+    transform: translateY(2px);
+}
+
+@media (max-width: 800px) {
+    .scroll-to-top {
+        right: 18px;
+        bottom: 18px;
+
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MME REVISION NOTES — CONTENT STYLES
+   =========================================================
+
+   IMPORTANT:
+   This file ONLY styles the actual revision-note content
+   loaded from Supabase.
+
+   It does NOT style:
+   - Navbar
+   - Sidebar
+   - Chapter list
+   - Subtopic navigation
+   - Scroll-to-top button
+   - Page layout outside the note itself
+
+   The HTML stored in Supabase uses:
+   h1, h2, h3, p, strong, ul, ol
+   and the special .note-* classes below.
+   ========================================================= */
+
+
+/* =========================================================
+   1. NOTE CONTAINER
+   =========================================================
+
+   .note-content is the wrapper around ALL of the HTML
+   fetched from Supabase.
+
+   This controls the width of the actual revision note.
+   ========================================================= */
+
+.note-content {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   2. MAIN NOTE TITLE
+   =========================================================
+
+   Example:
+
+   <h1>Specific Heat Capacity</h1>
+
+   This is the BIG title at the top of the note.
+
+   We use Playfair Display here to give the title that
+   slightly academic / elegant look.
+   ========================================================= */
+
+.note-content > h1 {
+    margin: 0;
+
+    font-family: var(--notes-heading-font);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   3. INTRODUCTION / DESCRIPTION
+   =========================================================
+
+   The first paragraph immediately underneath the title.
+
+   Example:
+
+   <h1>Specific Heat Capacity</h1>
+
+   <p>
+       The amount of energy required...
+   </p>
+
+   This is intentionally lighter and softer than the
+   actual note content.
+
+   The divider below it separates the heading area
+   from the actual revision content.
+   ========================================================= */
+
+.note-content > h1 + p {
+    margin: 10px 0 22px;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: #70756F;
+}
+
+
+/* =========================================================
+   4. DIVIDER AFTER TITLE / INTRO
+   =========================================================
+
+   Creates the thin horizontal line underneath the
+   title + description.
+
+   This keeps the top of every note visually clean.
+   ========================================================= */
+
+.note-content > h1 + p::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin-top: 24px;
+
+    background: var(--notes-border);
+}
+
+
+/* =========================================================
+   5. NORMAL PARAGRAPHS
+   =========================================================
+
+   Example:
+
+   <p>
+       Different materials require different amounts
+       of energy...
+   </p>
+
+   This is the standard body text throughout the note.
+   ========================================================= */
+
+.note-content p {
+    margin: 0 0 14px;
+
+    font-family: var(--notes-body-font);
+
+    font-size: 16px;
+    line-height: 1.7;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   6. SECTION HEADINGS
+   =========================================================
+
+   Example:
+
+   <h2>The Formula</h2>
+
+   These divide the note into major sections.
+
+   They are intentionally much simpler than the main
+   h1 title.
+   ========================================================= */
+
+.note-content h2 {
+    margin: 32px 0 14px;
+
+    font-family: var(--notes-body-font);
+
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   7. SMALLER HEADINGS
+   =========================================================
+
+   Example:
+
+   <h3>Definition</h3>
+
+   Used inside cards or for smaller sections.
+   ========================================================= */
+
+.note-content h3 {
+    margin: 22px 0 9px;
+
+    font-family: var(--notes-body-font);
+
+    font-size: 18px;
+    font-weight: 700;
+
+    color: var(--notes-text);
+}
+
+
+/* =========================================================
+   8. BOLD / IMPORTANT TEXT
+   =========================================================
+
+   Example:
+
+   <strong>specific heat capacity</strong>
+
+   Makes important words stand out without needing
+   another coloured box.
+   ========================================================= */
+
+.note-content strong {
+    font-weight: 700;
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   9. SAGE HIGHLIGHT
+   =========================================================
+
+   Supabase:
+
+   <span class="note-highlight">
+       specific heat capacity
+   </span>
+
+   Produces a small sage-coloured highlight behind
+   important terminology.
+
+   This is NOT a huge box — just an inline highlight.
+   ========================================================= */
+
+.note-highlight {
+    display: inline;
+
+    padding: 2px 6px;
+
+    background: #CCD5AE;
+
+    border-radius: 4px;
+
+    color: var(--mme-green);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   10. BASIC CARD
+   =========================================================
+
+   Supabase:
+
+   <div class="note-card">
+       ...
+   </div>
+
+   This is the most neutral card.
+
+   Think:
+   "I want to group this information together."
+
+   Very subtle. White background, thin border,
+   tiny shadow.
+   ========================================================= */
+
+.note-card {
+    margin: 22px 0;
+    padding: 20px 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+
+/* =========================================================
+   11. DEFINITION CARD
+   =========================================================
+
+   Supabase:
+
+   <div class="note-definition">
+       ...
+   </div>
+
+   This is specifically for definitions.
+
+   The LEFT green line is the main visual identifier.
+
+   Example appearance:
+
+   | Definition
+   | Specific heat capacity is...
+   ========================================================= */
+
+.note-definition {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+/* Definition heading */
+
+.note-definition h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   12. KEY IDEA CARD
+   =========================================================
+
+   Supabase:
+
+   <div class="note-key-idea">
+       ...
+   </div>
+
+   Used when something is conceptually important.
+
+   Same simple design language as the definition card.
+   ========================================================= */
+
+.note-key-idea {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+.note-key-idea h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   13. FORMULA BOX
+   =========================================================
+
+   Supabase:
+
+   <div class="note-formula">
+       \[ Q = mc\Delta T \]
+   </div>
+
+   Formulas get their own subtle box so they are easy
+   to find when revising.
+
+   It is intentionally NOT bright green.
+   ========================================================= */
+
+.note-formula {
+    margin: 20px 0;
+    padding: 18px 20px;
+
+    background: #F5F7EF;
+
+    border: 1px solid #DDE3CF;
+
+    border-radius: 9px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   14. VARIABLES / "WHERE" BOX
+   =========================================================
+
+   Supabase:
+
+   <div class="note-variables">
+       <h3>Where:</h3>
+       ...
+   </div>
+
+   Used directly underneath a formula to explain
+   what each symbol means.
+   ========================================================= */
+
+.note-variables {
+    margin: 16px 0 22px;
+    padding: 16px 20px;
+
+    background: #FAFAF8;
+
+    border: 1px solid #E5E7E2;
+
+    border-radius: 9px;
+}
+
+
+.note-variables h3 {
+    margin: 0 0 10px;
+
+    font-size: 14px;
+
+    color: var(--mme-green);
+}
+
+
+.note-variables p {
+    margin-bottom: 6px;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   15. WORKED EXAMPLE
+   =========================================================
+
+   Supabase:
+
+   <div class="note-example">
+       ...
+   </div>
+
+   Used for worked calculations or worked questions.
+
+   It is slightly more spacious than a normal card.
+   ========================================================= */
+
+.note-example {
+    margin: 24px 0;
+    padding: 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E1E5DD;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+
+.note-example > h3 {
+    margin: 0 0 14px;
+
+    font-size: 18px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   16. EXAMINER TIP
+   =========================================================
+
+   Supabase:
+
+   <div class="note-tip">
+       ...
+   </div>
+
+   This uses the SAME visual language as the definition
+   card rather than introducing another random colour.
+   ========================================================= */
+
+.note-tip {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+.note-tip h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   17. IMPORTANT WARNING
+   =========================================================
+
+   Supabase:
+
+   <div class="note-important">
+       ...
+   </div>
+
+   Used when the student REALLY needs to remember
+   something or avoid a common mistake.
+
+   Still kept minimal — no giant coloured box.
+   ========================================================= */
+
+.note-important {
+    margin: 22px 0;
+    padding: 18px 20px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E5E7E2;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 9px;
+}
+
+
+.note-important h3 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   18. PRACTICE QUESTION
+   =========================================================
+
+   Supabase:
+
+   <div class="note-practice">
+       ...
+   </div>
+
+   This separates a question from the explanatory
+   content of the note.
+
+   Again: simple white card + sage accent.
+   ========================================================= */
+
+.note-practice {
+    margin: 24px 0;
+    padding: 20px 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E1E5DD;
+    border-left: 4px solid #CCD5AE;
+
+    border-radius: 10px;
+}
+
+
+.note-practice h3 {
+    margin: 0 0 12px;
+
+    font-size: 17px;
+
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   19. LISTS
+   =========================================================
+
+   Normal <ul> and <ol> lists inside the notes.
+
+   Example:
+
+   <ul>
+       <li>Convex lens</li>
+       <li>Concave lens</li>
+   </ul>
+   ========================================================= */
+
+.note-content ul,
+.note-content ol {
+    margin: 12px 0 18px;
+
+    padding-left: 25px;
+}
+
+
+.note-content li {
+    margin-bottom: 7px;
+
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: var(--notes-text);
+}
+
+
+/* Make list bullets use the MME green */
+
+.note-content li::marker {
+    color: var(--mme-green);
+}
+
+
+/* =========================================================
+   20. VIDEO
+   =========================================================
+
+   Supabase:
+
+   <div class="note-video">
+       <iframe ...></iframe>
+   </div>
+
+   This keeps the YouTube video responsive instead of
+   giving it a random fixed size.
+   ========================================================= */
+
+.note-video {
+    margin: 24px 0;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #F5F5F5;
+}
+
+
+.note-video iframe {
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+
+/* =========================================================
+   21. MATHJAX
+   =========================================================
+
+   MathJax creates the actual mathematical equations.
+
+   This simply gives equations some breathing room.
+   ========================================================= */
+
+.note-content mjx-container[display="true"] {
+    margin: 18px 0 !important;
+}
+
+
+/* =========================================================
+   22. MOBILE
+   =========================================================
+
+   On smaller screens we reduce the title size and
+   card padding so the notes don't feel cramped.
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .note-content > h1 {
+        font-size: 34px;
+    }
+
+
+    .note-content h2 {
+        font-size: 22px;
+    }
+
+
+    .note-content h3 {
+        font-size: 17px;
+    }
+
+
+    .note-content p,
+    .note-content li {
+        font-size: 15px;
+    }
+
+
+    .note-card,
+    .note-definition,
+    .note-key-idea,
+    .note-example,
+    .note-tip,
+    .note-important,
+    .note-practice {
+
+        padding: 17px 18px;
+    }
+
+
+    .note-formula {
+        padding: 16px;
+    }
+
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Matric Made Easy</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+     <link rel="stylesheet" href="css/resources.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <div class="brand">
+        <img class="logo" src="assets/logo2.png">
+        <p class="brand-name">Matric Made Easy</p>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Dashboard</a></li>
+    </ul>
+
+</nav>
+
+<section class="resources-page">
+
+    <a id="backBtn" class="back-btn">
+        ← Back
+    </a>
+
+    <h1 id="subjectTitle"></h1>
+
+    <p class="resources-subtitle">
+        Choose how you'd like to study.
+    </p>
+
+    <div class="resources-grid">
+
+        <a id="notesCard" class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <h3>Revision Notes</h3>
+
+            <p>Concise chapter summaries for quick revision.</p>
+
+            <span>Explore →</span>
+
+        </a>
+
+        <a id="mcqCard" class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-list-check"></i>
+            </div>
+
+            <h3>MCQ Practice</h3>
+
+            <p>Practice chapter-wise MCQs with instant feedback.</p>
+
+            <span>Explore →</span>
+
+        </a>
+
+        <a id="questionsCard" class="resource-card">
+
+            <div class="resource-icon">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <h3>Question Bank</h3>
+
+            <p>Browse past paper questions organised by chapter.</p>
+
+            <span>Explore →</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/resources.js"></script>
+
+</body>
+</html>
